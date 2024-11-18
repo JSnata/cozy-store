@@ -11,4 +11,4 @@ const FormInput = ({ label, name, type, defaultValue }) => {
   )
 }
 
-export default FormInputs
+export default FormInput
