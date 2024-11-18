@@ -7,7 +7,9 @@ const MainLayout = () => {
       <nav>
         <span className='text-4xl text-primary'>Cozy Store</span>
       </nav>
-      <Outlet />
+      <section className='align-element py-20'>
+        <Outlet />
+      </section>
     </>
   )
 }
