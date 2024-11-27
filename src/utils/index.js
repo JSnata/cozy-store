@@ -1,4 +1,4 @@
-import { axios } from 'axios';
+import axios from 'axios';
 
 const baseurl = 'https://strapi-store-server.onrender.com/api';
 
