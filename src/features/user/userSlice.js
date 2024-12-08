@@ -23,7 +23,10 @@ const userSlice = createSlice({name: 'user', initialState, reducers: {
         console.log('login');
     },
     logoutUser: (state) => {
-
+        state.user = null;
+        // localStorage.clear()
+        localStorage.removeItem('user');
+        toast.success('Logged out successfully');
     },
     toggleTheme: (state) => {
         console.log('hey');
