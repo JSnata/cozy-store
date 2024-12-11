@@ -10,7 +10,7 @@ export const action = async ({ request }) => {
   try {
     const response = await customFetch.post('/auth/local/register', data);
     toast('account created');
-    return redirect
+    return redirect('/login')
   } catch (error) {
     const errorMessage = error?.response?.data?.error?.message || 'there is an error';
     toast.error(errorMessage);

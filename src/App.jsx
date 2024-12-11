@@ -6,6 +6,8 @@ import { loader as LandingLoader } from './pages/Landing';
 import { loader as ProductLoader } from './pages/Product';
 import { loader as ProductsLoader } from './pages/Products';
 import { action as RegisterAction } from './pages/Register';
+import { action as LoginAction } from './pages/Login';
+import { store } from './store';
 
 const router = createBrowserRouter([
   {
@@ -51,7 +53,8 @@ const router = createBrowserRouter([
   {
     path:'/login',
     element: <Login />,
-    errorElement: <Error />
+    errorElement: <Error />,
+    action: LoginAction(store)
   },
   {
     path:'/register',
