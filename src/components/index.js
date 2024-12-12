@@ -14,3 +14,4 @@ export { default as Pagination } from './Pagination';
 export { default as LoadingSpinner } from './LoadingSpinner';
 export { default as CartTotals } from './CartTotals';
 export { default as CartItemsList } from './CartItemsList';
+export { default as CheckoutForm } from './CheckoutForm';

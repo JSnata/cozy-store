@@ -5,8 +5,10 @@ import { ErrorElement } from './components';
 import { loader as LandingLoader } from './pages/Landing';
 import { loader as ProductLoader } from './pages/Product';
 import { loader as ProductsLoader } from './pages/Products';
+import { loader as CheckoutLoader } from './pages/Checkout';
 import { action as RegisterAction } from './pages/Register';
 import { action as LoginAction } from './pages/Login';
+import { action as checkoutAction } from './components/CheckoutForm';
 import { store } from './store';
 
 const router = createBrowserRouter([
@@ -42,7 +44,9 @@ const router = createBrowserRouter([
       },
       {
         path: 'checkout',
-        element: <Checkout />
+        element: <Checkout />,
+        loader: CheckoutLoader(store),
+        action: checkoutAction(store)
       },
       {
         path: 'orders',
