@@ -25,3 +25,4 @@ This project uses the following technologies:
 - **Redux**
 - **Tailwind CSS**
 - **GitHub Pages**
+- **Daisy UI**
