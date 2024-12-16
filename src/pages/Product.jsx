@@ -1,4 +1,3 @@
-import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { customFetch, generateAmountOptions } from '../utils';
 import { Link } from 'react-router-dom';

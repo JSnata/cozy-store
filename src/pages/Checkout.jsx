@@ -1,4 +1,3 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
 import { CheckoutForm, SectionTitle, CartTotals } from '../components';
 import { toast } from 'react-toastify';

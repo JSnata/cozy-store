@@ -1,6 +1,4 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
-import { FaSoap } from 'react-icons/fa6';
 
 const CartTotals = () => {
   const { cartTotal, shipping, tax, orderTotal } = useSelector(

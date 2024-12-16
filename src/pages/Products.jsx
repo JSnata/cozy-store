@@ -1,4 +1,3 @@
-import React from 'react';
 import { Filters, Pagination, ProductsContainer } from '../components';
 import { customFetch } from '../utils';
 
