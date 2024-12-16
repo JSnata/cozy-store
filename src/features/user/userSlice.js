@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 
 const themes = {
     cupcake: 'cupcake',
-    coffee: 'coffee'
+    night: 'night'
 }
 
 const getUserFromLocalStorage = () => {
@@ -36,8 +36,8 @@ const userSlice = createSlice({name: 'user', initialState, reducers: {
     toggleTheme: (state) => {
         console.log('hey');
         
-        const { cupcake, coffee } = themes;
-        state.theme = state.theme === cupcake ? coffee : cupcake;
+        const { cupcake, night } = themes;
+        state.theme = state.theme === cupcake ? night : cupcake;
         document.documentElement.setAttribute('data-theme', state.theme);
         localStorage.setItem('theme', state.theme);
     }
