@@ -15,7 +15,7 @@ export const action =
       const response = await customFetch.post('/auth/local', data);
       store.dispatch(loginUser(response.data));
       toast('logged in');
-      return redirect('/');
+      return redirect('/cozy-store/');
     } catch (error) {
       const errorMessage =
         error?.response?.data?.error?.message || 'there is an error';

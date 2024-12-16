@@ -35,7 +35,7 @@ const queryClient = new QueryClient({
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/cozy-store/',
     element: <MainLayout />,
     errorElement: <Error />,
     children: [

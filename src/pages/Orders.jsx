@@ -26,7 +26,7 @@ export const loader =
     const user = store.getState().userState.user;
     if (!user) {
       toast.warn('You must be logged in');
-      return redirect('/');
+      return redirect('/cozy-store/');
     }
     console.log(user.token);
 

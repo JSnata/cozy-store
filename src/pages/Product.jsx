@@ -56,7 +56,7 @@ const Product = () => {
       <div className="text-md breadcrumbs">
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/cozy-store/">Home</Link>
           </li>
           <li>
             <Link to="/products">Products</Link>
