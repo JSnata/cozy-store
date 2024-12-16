@@ -24,5 +24,4 @@ This project uses the following technologies:
 - **React Query**
 - **Redux**
 - **Tailwind CSS**
-- **GitHub Pages**
 - **Daisy UI**
