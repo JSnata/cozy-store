@@ -43,14 +43,13 @@ export const loader =
   };
 
 const Products = () => {
-  return ( 
+  return (
     <>
       <Filters />
       <ProductsContainer />
       <Pagination />
     </>
+  );
+};
 
-  )
-}
-
-export default Products
+export default Products;

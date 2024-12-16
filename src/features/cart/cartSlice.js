@@ -12,7 +12,7 @@ const defaultState = {
 
 const getCardFromLocalStorage = () => {
   return JSON.parse(localStorage.getItem('cart')) || defaultState;
-}
+};
 
 const cartSlice = createSlice({
   name: 'cart',
@@ -21,9 +21,9 @@ const cartSlice = createSlice({
     addItem: (state, action) => {
       const { product } = action.payload;
       console.log(product);
-      
+
       const item = state.cartItems.find((i) => i.cartID === product.cartID);
-      if(item) {
+      if (item) {
         item.amount += product.amount;
       } else {
         state.cartItems.push(product);
@@ -59,7 +59,7 @@ const cartSlice = createSlice({
       state.tax = 0.1 * state.cartTotal;
       state.orderTotal = state.cartTotal + state.shipping + state.tax;
       localStorage.setItem('cart', JSON.stringify(state));
-    }
+    },
   },
 });
 

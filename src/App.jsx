@@ -2,7 +2,19 @@ import React from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import { About, Cart, Checkout, Error, MainLayout, Landing, Login, Orders, Product, Products, Register } from './pages';
+import {
+  About,
+  Cart,
+  Checkout,
+  Error,
+  MainLayout,
+  Landing,
+  Login,
+  Orders,
+  Product,
+  Products,
+  Register,
+} from './pages';
 import { ErrorElement } from './components';
 import { loader as LandingLoader } from './pages/Landing';
 import { loader as ProductLoader } from './pages/Product';
@@ -18,13 +30,13 @@ const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       staleTime: 1000 * 60 * 5,
-    }
-  }
-})
+    },
+  },
+});
 
 const router = createBrowserRouter([
   {
-    path:'/',
+    path: '/',
     element: <MainLayout />,
     errorElement: <Error />,
     children: [
@@ -47,46 +59,46 @@ const router = createBrowserRouter([
       },
       {
         path: 'cart',
-        element: <Cart />
+        element: <Cart />,
       },
       {
         path: 'about',
-        element: <About />
+        element: <About />,
       },
       {
         path: 'checkout',
         element: <Checkout />,
         loader: CheckoutLoader(store),
-        action: checkoutAction(store, queryClient)
+        action: checkoutAction(store, queryClient),
       },
       {
         path: 'orders',
         element: <Orders />,
-        loader: OrdersLoader(store, queryClient)
+        loader: OrdersLoader(store, queryClient),
       },
-    ]
+    ],
   },
   {
-    path:'/login',
+    path: '/login',
     element: <Login />,
     errorElement: <Error />,
-    action: LoginAction(store)
+    action: LoginAction(store),
   },
   {
-    path:'/register',
+    path: '/register',
     element: <Register />,
     errorElement: <Error />,
-    action: RegisterAction
-  }
-])
+    action: RegisterAction,
+  },
+]);
 
 const App = () => {
   return (
-  <QueryClientProvider client={queryClient}>
-    <RouterProvider router={router} />
-    <ReactQueryDevtools initialIsOpen={false} />
-  </QueryClientProvider> 
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   );
-}
+};
 
-export default App
+export default App;

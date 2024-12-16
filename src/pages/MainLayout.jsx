@@ -1,6 +1,6 @@
 import React from 'react';
 import { Outlet, useNavigation } from 'react-router-dom';
-import { Header, Navbar, LoadingSpinner } from '../components'
+import { Header, Navbar, LoadingSpinner } from '../components';
 
 const MainLayout = () => {
   const navigation = useNavigation();
@@ -9,13 +9,15 @@ const MainLayout = () => {
     <>
       <Header />
       <Navbar />
-      {isPageLoading ? (<LoadingSpinner />) : (
-        <section className='align-element py-20'>
+      {isPageLoading ? (
+        <LoadingSpinner />
+      ) : (
+        <section className="align-element py-20">
           <Outlet />
         </section>
       )}
     </>
-  )
-}
+  );
+};
 
-export default MainLayout
+export default MainLayout;

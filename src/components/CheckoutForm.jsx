@@ -25,7 +25,7 @@ export const action =
       numItemsInCart,
     };
     console.log(info);
-    
+
     try {
       const response = await customFetch.post(
         '/orders',
@@ -45,19 +45,19 @@ export const action =
       const errorMessage =
         error?.response?.data?.error?.message ||
         'there was an error placing your order';
-      if (error?.response?.status === 401 || 403) return redirect('/login'); 
+      if (error?.response?.status === 401 || 403) return redirect('/login');
       toast.error(errorMessage);
       return null;
     }
   };
 const CheckoutForm = () => {
   return (
-    <Form method='POST' className='flex flex-col gap-y-4'>
-      <h4 className='font-medium text-xl'>Shipping Information</h4>
-      <FormInput label='first name' name='name' type='text' />
-      <FormInput label='address' name='address' type='text' />
-      <div className='mt-4'>
-        <SubmitButton text='Place Your Order' />
+    <Form method="POST" className="flex flex-col gap-y-4">
+      <h4 className="font-medium text-xl">Shipping Information</h4>
+      <FormInput label="first name" name="name" type="text" />
+      <FormInput label="address" name="address" type="text" />
+      <div className="mt-4">
+        <SubmitButton text="Place Your Order" />
       </div>
     </Form>
   );
