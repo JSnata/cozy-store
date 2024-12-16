@@ -7,7 +7,7 @@ import { OrdersList, ComplexPagination, SectionTitle } from '../components';
 const ordersQuery = (params, user) => {
   return {
     queryKey: ['orders', user.username, params.page ? parseInt(params.page) : 1],
-    querFn: () => customFetch.get('/orders', {
+    queryFn: () => customFetch.get('/orders', {
       params, headers: {
         Authorization: `Bearer ${user.token}`
       }
@@ -22,6 +22,8 @@ export const loader = ( store, queryClient ) => async ( {request} ) => {
       toast.warn('You must be logged in');
       return redirect('/');
     }
+    console.log(user.token);
+    
     const params = Object.fromEntries([...new URL(request.url).searchParams.entries(),]);
     try {
       const response = await queryClient.ensureQueryData(ordersQuery(params, user))

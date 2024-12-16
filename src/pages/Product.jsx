@@ -24,7 +24,7 @@ export const loader = (queryClient) => async ({ params }) => {
 const Product = () => {
   const { product } = useLoaderData();
   const { image, title, price, description, colors, company } = product.attributes;
-  const dollarsAmount = price / 100;
+  const dollarsAmount = (price / 100).toFixed(2);
   const [ productColor, setProductColor ] = useState(colors[0]);
   const [ amount, setAmount ] = useState(1);
 

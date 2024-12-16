@@ -8,7 +8,7 @@ const ProductsList = () => {
     <div className='mt-12 grid gap-y-8'>
       {products.map((product) => {
         const { title, price, image, company } = product.attributes;
-        const dollarsAmount = price / 100;
+        const dollarsAmount = (price / 100).toFixed(2);
         return (
             <Link
             key={product.id}

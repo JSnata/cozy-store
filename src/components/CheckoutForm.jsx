@@ -12,6 +12,7 @@ export const action =
     const formData = await request.formData();
     const { name, address } = Object.fromEntries(formData);
     const user = store.getState().userState.user;
+    console.log(user);
     const { cartItems, orderTotal, numItemsInCart } =
       store.getState().cartState;
 
@@ -19,10 +20,12 @@ export const action =
       name,
       address,
       chargeTotal: orderTotal,
-      orderTotal: Math.floor(orderTotal / 100),
+      orderTotal: `$${(orderTotal / 100).toFixed(2)}`,
       cartItems,
       numItemsInCart,
     };
+    console.log(info);
+    
     try {
       const response = await customFetch.post(
         '/orders',

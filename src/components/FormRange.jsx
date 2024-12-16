@@ -11,7 +11,7 @@ const FormRange = ({label, name, size, price}) => {
                 <span className="label-text capitalize">
                     {label}
                 </span>
-                <span>${selectedPrice / 100}</span>
+                <span>${(selectedPrice / 100).toFixed(2)}</span>
             </label>
                 <input type="range" name={name} min={0} max={maxPrice} id={name} value={selectedPrice} onChange={(e) => setSelectedPrice(e.target.value)} step={step} className={`range range-primary ${size}`} />
         </div>
