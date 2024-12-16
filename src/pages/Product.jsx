@@ -8,8 +8,15 @@ import { addItem } from '../features/cart/cartSlice';
 
 const url = '/products/';
 
-export const loader = async ({ params }) => {
-  const response = await customFetch(url + params.id);
+const productQuery = (id) => {
+  return {
+    queryKey: ['singleProduct', id],
+    queryFn: () => customFetch(url + id)
+  }
+}
+
+export const loader = (queryClient) => async ({ params }) => {
+  const response = await queryClient.ensureQueryData(productQuery(params.id)); 
   const product = response.data.data;
   return { product };
  }
@@ -62,7 +69,7 @@ const Product = () => {
           <p className="mt-3 text-xl">{dollarsAmount}</p>
           <p className="mt-6 leading-8">{description}</p>
           <div className="mt-6">
-            <h4 className="text-mmd font-md tracking-wider capitalize">
+            <h4 className="text-md font-md tracking-wider capitalize">
               colors
             </h4>
             <div className="mt-2">
@@ -74,7 +81,7 @@ const Product = () => {
           {/* Amount */}
               <div className="form-control w-full max-w-xs">
                 <label htmlFor='amount' className="label">
-                  <h4 className="text-md font-medioum -tracking-wider capitalizw">amount</h4>
+                  <h4 className="text-md font-medium -tracking-wider capitalize">amount</h4>
                 </label>
                 <select name="" id="amount" value={amount} onChange={handleAmount} className="select select-secondary select-bordered select-md">
                   {generateAmountOptions(20)}
